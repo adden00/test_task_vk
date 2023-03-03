@@ -48,6 +48,7 @@ class SearchFragment : Fragment() {
         lifecycleScope.launchWhenStarted {
             viewModel.isLoadingGiffs.collect {
                 binding.pBarSearching.visibility = if (it) View.VISIBLE else View.GONE
+                binding.swipeToRefresh.isRefreshing = it
             }
         }
     }
@@ -67,6 +68,9 @@ class SearchFragment : Fragment() {
         binding.rcGiffs.layoutManager = GridLayoutManager(requireContext(), 2)
 
         binding.btnFind.setOnClickListener {
+            viewModel.searchGiffs(binding.editTextTextPersonName.text.toString())
+        }
+        binding.swipeToRefresh.setOnRefreshListener {
             viewModel.searchGiffs(binding.editTextTextPersonName.text.toString())
         }
     }

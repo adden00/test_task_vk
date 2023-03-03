@@ -29,9 +29,7 @@ class SearchAdapter(private val listener: Listener) :
             this.itemView.setOnClickListener {
                 listener.onClick(item)
             }
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder = ItemHolder(

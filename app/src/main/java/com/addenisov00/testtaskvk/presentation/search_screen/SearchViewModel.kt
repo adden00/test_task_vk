@@ -23,10 +23,6 @@ class SearchViewModel @Inject constructor(private val searchGiffUseCase: SearchG
     private val _selectedGif = MutableStateFlow<GiffItem?>(null)
     val selectedGif: StateFlow<GiffItem?> = _selectedGif.asStateFlow()
 
-    init {
-
-    }
-
 
     fun searchGiffs(name: String) {
         _isLoadingGiffs.value = true
