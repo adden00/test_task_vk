@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.addenisov00.domain.models.GiffItem
 import com.addenisov00.testtaskvk.R
+import com.addenisov00.testtaskvk.common.Constants
 import com.addenisov00.testtaskvk.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
@@ -51,8 +54,12 @@ class SearchFragment : Fragment() {
 
     private fun setUI() {
         adapter = SearchAdapter(object : SearchAdapter.Listener {
-            override fun onClick() {
-                findNavController().navigate(R.id.action_searchFragment_to_detailsFragment)
+            override fun onClick(item: GiffItem) {
+                val itemToDetails = bundleOf(Constants.GIFF_DETAILS_KEY to item)
+                findNavController().navigate(
+                    R.id.action_searchFragment_to_detailsFragment,
+                    itemToDetails
+                )
             }
         })
 

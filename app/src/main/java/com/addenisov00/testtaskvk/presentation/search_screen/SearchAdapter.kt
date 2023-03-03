@@ -27,7 +27,7 @@ class SearchAdapter(private val listener: Listener) :
             val binding = GiffListItemBinding.bind(view)
             Glide.with(binding.root.context).load(item.url).centerCrop().into(binding.imGiff)
             this.itemView.setOnClickListener {
-                listener.onClick()
+                listener.onClick(item)
             }
 
         }
@@ -46,6 +46,6 @@ class SearchAdapter(private val listener: Listener) :
     }
 
     interface Listener {
-        fun onClick()
+        fun onClick(item: GiffItem)
     }
 }

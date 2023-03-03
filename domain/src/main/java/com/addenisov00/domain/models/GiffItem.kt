@@ -7,4 +7,4 @@ data class GiffItem(
     val slug: String,
     val title: String,
     val username: String
-)
+) : java.io.Serializable

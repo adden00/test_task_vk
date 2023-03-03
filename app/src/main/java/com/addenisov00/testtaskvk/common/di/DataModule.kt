@@ -1,6 +1,6 @@
 package com.addenisov00.testtaskvk.common.di
 
-import com.addenisov00.data.Constants
+import com.addenisov00.data.DataConstants
 import com.addenisov00.data.network.GifsApiClient
 import com.addenisov00.data.network.GifsNetworkService
 import com.addenisov00.data.repository.GiffsRepositoryImpl
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 object DataModule {
     @Provides
     @Singleton
-    fun provideApiClient(): GifsApiClient = Retrofit.Builder().baseUrl(Constants.BASE_URL)
+    fun provideApiClient(): GifsApiClient = Retrofit.Builder().baseUrl(DataConstants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create()).build()
         .create(GifsApiClient::class.java)
 

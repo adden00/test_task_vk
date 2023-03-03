@@ -4,4 +4,7 @@
     <string name="search">type gif name…</string>
     <string name="search_gif">Search</string>
     <string name="my_giffy_searching">My giffy searching</string>
+    <string name="giff_name">gif name</string>
+    <string name="description">description</string>
+    <string name="rating">rating</string>
 </resources>
